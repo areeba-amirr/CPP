@@ -13,17 +13,27 @@ int main(){
 	char name[50];
 	cout<<"Enter you name: ";
 	cin>>name;
+	string me;
+	cin.ignore();
+	cout<<"Enter line: ";
+	getline(cin,me);
+	
 	
 	ofstream myFile("firstfile.txt");
-	myFile<<"Name : "<<name<<endl;
+	myFile<<name<<endl;
+	myFile<<me<<endl;
 	myFile.close();
-	
-	cout<<"Data stored"<<endl;
+	//store data
 	
 	ifstream file("firstfile.txt");
 	file>>name;
+	file.ignore();
+	getline(file,me);
 	file.close();
 	
-	cout<<name<<endl;
+	cout<<"Data stored"<<endl;
+	cout<<"Name : "<<name<<endl;
+	cout<<me<<endl;
+	
 	return 0;
 }
