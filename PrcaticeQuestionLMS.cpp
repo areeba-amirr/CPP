@@ -193,12 +193,125 @@ int main(){
 //	return 0;
 //}
 
+//Write a program that prints the sum, difference, product, quotient, and remainder of two integers. Initialize the integer with the values 60 and 7. (use user defined functions)
+//#include<iostream>
+//using namespace std;
+//class Calculate{
+//	public : 
+//	
+//	int no1,no2;
+//	void add(){
+//		cout<<"Sum of "<<no1<<" & "<<no2<<" is "<<no1+no2<<endl;
+//	}
+//	void difference(){
+//		cout<<"Difference of "<<no1<<" & "<<no2<<" is "<<no1-no2<<endl;
+//	}
+//	void product(){
+//		cout<<"Product of "<<no1<<" & "<<no2<<" is "<<no1*no2<<endl;
+//	}
+//	void quotient(){
+//		cout<<"Quotient of "<<no1<<" & "<<no2<<" is "<<no1/no2<<endl;
+//	}
+//	void mod(){
+//		cout<<"Modulus of "<<no1<<" & "<<no2<<" is "<<no1%no2<<endl;
+//	}
+//};
+//int main(){
+//	Calculate c;
+//	cout<<"Enter No1 : ";
+//	cin>>c.no1;
+//	cout<<"Enter No2 : ";
+//	cin>>c.no2;
+//	c.add();
+//	c.difference();
+//	c.product();
+//	c.quotient();
+//	c.mod();
+//	return 0;
+//}
 
+//Consider the problem of converting miles to kilometers. To find the equivalent kilometers, the number of miles is divided by 0.62. Write the steps involved in calculating the mileage
+//conversion when the number of miles is 12.
+//#include<iostream>
+//using namespace std;
+//class Unit{
+//	public :
+//		int num;
+//		void convert(){
+//			float km = num/0.62;
+//			cout<<num<<" miles = "<<km<<" km"<<endl;
+//		}
+//};
+//int main(){
+//	Unit u1;
+//	cout<<"Enter Number in Miles : ";
+//	cin>>u1.num;
+//	u1.convert();
+//	return 0;
+//}
 
-
-
-
-
+/*Design a program for a shoe distribution company that has five salespersons. Each salesperson has an ID number of one to five. An array is used to accumulate total sales for
+each salesperson. Sales can be entered multiple times for multiple sales by each salesperson. The user enters -1 to complete the input step. After all the input has been entered, a table is
+printed with each salesperson’s ID in the first row and the total sales in the second row.
+*/
+#include<iostream>
+using namespace std;
+class Data{
+		public :
+		int arr[5][11] ;
+		void CalculateSales(){
+			int s1,s2,s3,s4,s5,sum1 =0 ,sum2 = 0 , sum3 = 0,sum4 = 0,sum5 = 0;
+			for(int i = 2 ; i <= 9 ; i++){
+				sum1 += arr[0][i];
+			}
+			for(int i = 2 ; i <= 9 ; i++){
+				sum2 += arr[1][i];
+			}
+			for(int i = 2 ; i <= 9 ; i++){
+				sum3 += arr[2][i];
+			}
+			for(int i = 2 ; i <= 9 ; i++){
+				sum4 += arr[3][i];
+			}
+			for(int i = 2 ; i <= 9 ; i++){
+				sum5 += arr[4][i];
+			}
+			arr[0][10] = sum1;
+			arr[1][10] = sum2;
+			arr[2][10] = sum3;
+			arr[3][10] = sum4;
+			arr[4][10] = sum5;
+		}
+};
+	void add(int arr[][]){
+		for(int i = 0;i <= 4 ; i++){
+		for(int j = 0;i <= 9; j++){
+			cout<<"Enter value at ["<<i<<"]["<<j<<"]";
+			cin>>arr[i][j]; 
+			if(arr[i][j] == -1){
+				break;
+			}
+		
+		}	
+		}
+	}
+	void disp(){
+		cout<<"--------------------------"<<endl;
+		cout<<"    Id       |     Total "<<endl;
+		cout<<"  "<<arr[0][0]<<"|"<<sum1<<endl;
+		cout<<"  "<<arr[1][0]<<"|"<<sum2<<endl;
+		cout<<"  "<<arr[2][0]<<"|"<<sum3<<endl;
+		cout<<"  "<<arr[3][0]<<"|"<<sum4<<endl;
+		cout<<"  "<<arr[4][0]<<"|"<<sum5<<endl;
+	}
+};
+int main(){
+	Data obj;
+	obj.add();
+	obj.CalculateSales();
+	obj.disp();
+	return 0;
+}
 
 
 
