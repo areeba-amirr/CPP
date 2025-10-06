@@ -242,17 +242,209 @@ int main(){
 	return 0;
 }*/
 
+/*#include<iostream>
+using namespace std;
+class Animal{
+	public:
+		void eat(){
+			cout<<"Animal is Eating...."<<endl;
+		}
+		void sleep(){
+			cout<<"Animal is Sleeping...."<<endl;
+		}
+};
+class Horse : public Animal{
+	public:
+		void gallop(){
+			cout<<"Horse casn gallop.."<<endl;
+		}
+		
+};
+class Dog : public Animal{
+	public:
+		void bark(){
+			cout<<"Dog can bark.."<<endl;
+		}
+		
+};
+class Cat : public Animal{
+	public:
+	void meow(){
+			cout<<"Cat can meow.."<<endl;
+		}	
+};
+int main(){
+	Horse h1;
+	Dog d1;
+	Cat c1;
+	h1.eat();	h1.sleep();	 h1.gallop();
+	d1.bark();	d1.sleep(); d1.eat();
+	c1.eat(); c1.sleep(); c1.meow();
+	return 0;
+}*/
 
+/*#include<iostream>
+using namespace std;
+class Employee {
+	public :
+		void work(){
+			cout<<"Employee is working...."<<endl;
+		}
+		void takeBreak(){
+			cout<<"Employee is taking break...."<<endl;
+		}
+};
+class Manager : public Employee{
+	public:
+		void meeting(){
+			cout<<"Manager can conduct meetings..."<<endl;
+		}
+		
+};
+class Developer : public Employee{
+	public:
+		void code(){
+			cout<<"Developer can wite code..."<<endl;
+		}
+		
+};
+class Intern : public Employee{
+	public:
+		void train(){
+			cout<<"Intern can atten training sessions..."<<endl;
+		}
+};
+int main(){
+	Manager m1;
+	Developer d1;
+	Intern i1;
+	m1.meeting(); m1.takeBreak(); m1.work();
+	d1.work(); d1.takeBreak(); d1.code();
+	i1.takeBreak(); i1.train(); i1.work();
+	return 0;
+}*/
 
+/*#include<iostream>
+using namespace std;
+class Device {
+	public :
+		void powerON(){
+			cout<<"Device Powered ON...."<<endl;
+		}
+		void powerOff(){
+			cout<<"Device Powered OFF...."<<endl;
+		}
+};
+class Phone : public Device{
+	public:
+		void call(){
+			cout<<"Making a Phone call.."<<endl;
+		}
+		
+};
+class Camera : public Device{
+	public:
+		void click(){
+			cout<<"Photo Clicked!!"<<endl;
+		}
+		
+};
 
+int main(){
+	Phone p1;
+	Camera c1;
+	p1.powerON(); p1.powerOff(); p1.call();
+	c1.click(); c1.powerOff(); c1.powerON();
+	return 0;
+}*/
 
+/*#include<iostream>
+using namespace std;
+class Instrument{
+	public:
+		void tune(){
+			cout<<"Instrument is being tuned"<<endl;
+		}
+		void play(){
+			cout<<"Instrument is playing"<<endl;
+		}
+};
+class StringInstrument : public Instrument {
+	public :
+		void pluck(){
+			cout<<"Plucking the string.."<<endl;
+		}
+};
+class PercussionInstrument : public Instrument  {
+	public :
+		void beat(){
+			cout<<"Beating the percussion.."<<endl;
+		}
+};
+class HybridInstrument : public StringInstrument , public PercussionInstrument {
+	public :
+		void useAllFeatures(){
+		StringInstrument::play();	
+		StringInstrument::tune();	
+		pluck();
+		beat();
+		PercussionInstrument::beat();
+		}
+};
+int main(){
+	HybridInstrument h1;
+	h1.useAllFeatures();
+	return 0;
+}*/
+
+#include<iostream>
+using namespace std;
+class Person{
+	public :
+		string name; 
+		int age;
+		void displayPerson(){
+			cout<<"Name : "<<name<<endl<<"Age : "<<age<<endl;
+		}
+};
+class Student : public Person{
+	public :
+		int stdID;
+		void displayStudent(){
+			cout<<"Student ID : "<<stdID<<endl;
+		}
+};
+class Employee{
+	public :
+		int empID;
+		void displayEmployee(){
+			cout<<"Employee ID : "<<empID<<endl;
+		}
+};
+class WorkingStudent : public Student , public Employee{
+	public :
+	void displayAll(){
+		Person::displayPerson();
+		Student::displayStudent();
+		Employee::displayEmployee();
+	}
+};
+int main(){
+	WorkingStudent ws1;
+	ws1.age= 19;
+	ws1.empID = 101;
+	ws1.stdID = 88;
+	ws1.name = "Zara Ahmed";
+	ws1.displayAll();
+	return 0;
+}
 /*Scenario 1: Single Inheritance
 You're designing a system to manage employee information. The base class Employee stores basic details such as the employee's name and ID. The class includes a method displayEmployee() that prints the employee's name and ID.
 Next, create a class called Manager that inherits from Employee. In addition to the name and ID, each Manager has a department (e.g., "Sales"). Add a method displayDepartment() that shows the manager's department.
 In the main() function, create a Manager object. Set the name to your own full name, the employee ID to a sample ID, and the department to "Sales". Then call both displayEmployee() and displayDepartment().
 Inheritance type: Single Inheritance
 */
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class Employee{
 	public :
@@ -278,7 +470,7 @@ int main(){
 	obj.displayDepartment();
 	return 0;
 }
-
+*/
 /*Scenario 2: Multiple Inheritance
 You're designing a multimedia system. There are two base classes:
 "	Audio stores the audio device name and has a method playSound() that prints "<device> is playing sound."
