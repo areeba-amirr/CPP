@@ -397,7 +397,7 @@ int main(){
 	return 0;
 }*/
 
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class Person{
 	public :
@@ -437,7 +437,7 @@ int main(){
 	ws1.name = "Zara Ahmed";
 	ws1.displayAll();
 	return 0;
-}
+}*/
 /*Scenario 1: Single Inheritance
 You're designing a system to manage employee information. The base class Employee stores basic details such as the employee's name and ID. The class includes a method displayEmployee() that prints the employee's name and ID.
 Next, create a class called Manager that inherits from Employee. In addition to the name and ID, each Manager has a department (e.g., "Sales"). Add a method displayDepartment() that shows the manager's department.
@@ -641,3 +641,211 @@ int main(){
 	return 0;
 }*/
 
+/*Scenario 1: Library User System
+You're designing a simple system for managing library users. At the core, there's a class called User that stores basic information such as the user's name and ID. The class includes a method displayInfo() that prints the user's name and ID.
+Next, you'll create a class called Member that inherits from User. In addition to the name and ID, each Member has a membershipType (e.g., "Regular", "Premium"). You'll add a method displayMembership() that shows the type of membership.
+In the main() function, create a Member object. Set the name to your own full name, the ID to your student ID, and the membership type to "Premium". Then call both displayInfo() and displayMembership().*/
+/*#include<iostream>
+using namespace std;
+class User{
+	public :
+		int id;
+		string name;
+		void displayInfo(){
+			cout<<"Id : "<<id<<endl<<"Name : "<<name<<endl;
+		}
+};
+class Member : public User{
+	public :
+		string membership;
+		void displayMembership(){
+			cout<<"MemberShip :"<<membership<<endl;
+		}	
+};
+int main(){
+	Member m1;
+	m1.name = "Areeba Muhammad Aamir";
+	m1.id = 101;
+	m1.membership = "Premium";
+	m1.displayInfo();
+	m1.displayMembership();
+	return 0;
+}*/
+
+/*Scenario 2: Online Course Enrollment
+You're building a system to manage course enrollments. Start by creating a class called Person which stores a name and email address. The class should include a method showDetails() to print this information.
+Then, create a class called Learner that inherits from Person. This class adds a courseName property and a method enroll() that prints a message saying the person has enrolled in the course.
+In main(), create a Learner object. Set the name to your full name, the email to your university email, and the course to "C++ Programming". Call both methods to show the learner's details and the enrollment message*/
+/*#include<iostream>
+using namespace std;
+class Person{
+	public :
+		string name;
+		string mail;
+		void showDetails(){
+			cout<<"Name : "<<name<<endl<<"Mail : "<<mail<<endl;
+		}
+};
+class Learner : public Person{
+	public :
+		string courseProperty;
+		void enroll(){
+			cout<<"Person has enrolled in this "<<courseProperty<<endl;
+		}	
+};
+int main(){
+	Learner l1;
+	l1.name = "Areeba Muhammad Aamir";
+	l1.mail = "areeba@gmail.com";
+	l1.courseProperty = "Science";
+	l1.showDetails();
+	l1.enroll();
+	return 0;
+}*/
+
+/*Scenario 3: Student Exam Record
+You're creating a program to keep track of student exam results. First, define a class called Student with attributes like studentName and rollNo. It should have a method displayStudent() that prints the student's name and roll number.
+Next, create a class called Exam that inherits from Student. This class adds marks for three subjects (e.g., Math, Science, English) and a method displayMarks() that prints all the marks.
+In main(), create an Exam object. Set your full name, your real roll number, and enter your own chosen marks for each subject. Then call both methods to display the student's data and marks.*/
+/*#include<iostream>
+using namespace std;
+class Student{
+	public:
+		int rollNo;
+		string name;
+		void displayStudent(){
+			cout<<"RollNO : "<<rollNo<<endl<<"Name : "<<name<<endl;
+		}
+};
+class Exam : public Student{
+	public :
+		int maths,english,science;
+		void displayMarks(){
+			cout<<"Maths: "<<maths<<endl<<"English : "<<english<<endl<<"Science : "<<science<<endl;	
+		}	
+};
+int main(){
+	Exam std1;
+	std1.name = "Haris Aamir";
+	std1.rollNo = 122;
+	std1.english = 89;
+	std1.maths = 99;
+	std1.science = 78;
+	std1.displayStudent();
+	std1.displayMarks();
+	return 0;
+}*/
+
+/*Scenario 4: Vehicle Registration System
+You're building a registration system for vehicles. First, create a class called Vehicle with properties registrationNumber and ownerName. Include a method showRegistration() to print both values.
+Then, make a class called Car that inherits from Vehicle. It adds properties like carModel and year, and has a method showCarDetails() to display that info.
+In main(), create a Car object. Set the registration number to your student roll number, the owner name to your name, and enter any car model and year (e.g., "Toyota Corolla", 2020). Call both methods to show the full vehicle info.*/
+/*#include<iostream>
+using namespace std;
+class Vehicle{
+	public :
+		int regNum;
+		string owner;
+		void showRegistration(){
+			cout<<"Registration Number : "<<regNum<<endl<<"Owner : "<<owner<<endl;	
+		}	
+};
+class Car : public Vehicle{
+	public:
+		int year;
+		string carModel;
+		void showCarDetails(){
+			cout<<"Car Model : "<<carModel<<endl<<"Year : "<<year<<endl;
+		}
+};
+
+int main(){
+	Car c1;
+	c1.regNum = 34455;
+	c1.owner = "Ahmed Ali";
+	c1.year = 2022;
+	c1.carModel = "Civic";
+	c1.showCarDetails();
+	c1.showRegistration();
+	return 0;
+}*/
+
+/*Scenario 5: Employee Attendance Tracker
+You're creating a simple attendance system. First, define a class called Employee that includes properties for employeeID and name. Include a method logIn() that prints a message like "<name> (ID: <employeeID>) has logged in."
+Now create a class called Attendance that inherits from Employee. This class adds the current date and time (you can simulate it with a string), and a method markAttendance() that prints a message with the name and timestamp.
+In main(), create an Attendance object. Use your name and student ID as the employee data. Set a date/time like "2025-09-23 09:00AM" and then call both methods to log in and mark attendance.*/
+
+/*#include<iostream>
+using namespace std;
+class Employee{
+	public :
+		int empId;
+		string name;
+		void login(){
+			cout<<name <<"("<<empId<<") has logged in"<<endl;	
+		}	
+};
+class Attendance : public Employee{
+	public:
+		string date;
+		string time;
+		void markAttendance(){
+			cout<<"Attendance markes at "<<date<<"("<<time<<")"<<endl;
+		}
+};
+
+int main(){
+	Attendance a1;
+	a1.date = "09-03-2025";
+	a1.time = "09:00 AM";
+	a1.empId = 101;
+	a1.name ="Hasnain Aamir";
+	a1.login();
+	a1.markAttendance();
+	return 0;
+}*/
+
+/*Scenario 6: Smart Device System
+You're designing a program for a smart electronics store. The base class Device stores the brand name and provides a method powerOn() that prints "<brand> device is now ON."
+Then you create two classes:
+"	Phone inherits from Device and includes a method makeCall() that prints "<brand> phone is making a call."
+"	Camera also inherits from Device and includes a method clickPhoto() that prints "<brand> camera clicked a photo."
+Now, you define a hybrid class called SmartPhone that inherits from both Phone and Camera. It has a method useFeatures() that:
+"	Calls powerOn() from Phone
+"	Calls both makeCall() and clickPhoto()
+In main(), create a SmartPhone object. Set the brand to "Samsung" (or your favorite brand), and then call useFeatures() to demonstrate all the functionalities.*/
+#include<iostream>
+using namespace std;
+class Device {
+	public :
+		string brandName;
+		void powerON(){
+			cout<<brandName<<" is powred onn...."<<endl;
+		}
+};
+class Phone : public Device{
+	public :
+		void call(){
+			cout<<brandName<<" is making call"<<endl;
+		}
+};
+class Camera : public Device{
+	public :
+		void clickPhoto(){
+			cout<<brandName<<" camera clicked a photo"<<endl;
+		}
+};
+class SmartPhone : public Phone , public Camera{
+	public:
+		void useFeatures(){
+			Phone::powerON();
+              call();
+			  clickPhoto();
+		}
+};
+int main(){
+	SmartPhone sp1;
+	sp1.SmartPhone::brandName = "Samasung";
+	sp1.useFeatures();
+	return 0;
+}
