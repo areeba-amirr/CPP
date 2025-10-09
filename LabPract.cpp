@@ -814,7 +814,7 @@ Now, you define a hybrid class called SmartPhone that inherits from both Phone a
 "	Calls powerOn() from Phone
 "	Calls both makeCall() and clickPhoto()
 In main(), create a SmartPhone object. Set the brand to "Samsung" (or your favorite brand), and then call useFeatures() to demonstrate all the functionalities.*/
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class Device {
 	public :
@@ -845,7 +845,111 @@ class SmartPhone : public Phone , public Camera{
 };
 int main(){
 	SmartPhone sp1;
-	sp1.SmartPhone::brandName = "Samasung";
+	sp1.Phone::brandName = "Samasung";
+		sp1.Camera::brandName = "Samasung";
 	sp1.useFeatures();
 	return 0;
 }
+*/
+/*Scenario 7: Hospital Management System
+You're creating a system for hospital staff. The base class Person stores name and ID, with a method displayPerson().
+You define two more classes:
+"	Doctor inherits from Person and has a method diagnose() that prints the doctor is diagnosing a patient.
+"	Nurse also inherits from Person and has a method assist() that prints the nurse is assisting in surgery.
+Now, define a hybrid class MedicalProfessional that inherits from both Doctor and Nurse. It includes a method performDuties() that:
+"	Calls displayPerson() from Doctor
+"	Calls both diagnose() and assist()
+In main(), create a MedicalProfessional object. Use your name, ID, and simulate the medical actions by calling performDuties().
+*/
+/*#include<iostream>
+using namespace std;
+class Person{
+	public :
+		string name;
+		int id;
+		void showDetails(){
+			cout<<"Name : "<<name<<endl<<"ID : "<<id<<endl;
+		}
+};
+class Doctor : public Person{
+	public :
+		void diagnose(){
+			cout<<"Doctor is dignosing a patient..."<<endl;
+		}
+}; 
+class Nurse : public Person{
+	public :
+		void assist(){
+			cout<<"Nurse is assisting in surgery..."<<endl;
+		}
+}; 
+class MedicalProfessional :public Doctor, public Nurse{
+	public:
+		void performDuties(){
+		Doctor::showDetails(); // ambiguity ended
+			diagnose();
+			assist();
+		}
+};
+int main()
+{
+MedicalProfessional mp1;
+mp1.assist();
+mp1.Doctor::id=65;
+mp1.Doctor::name="Sara Abid";
+mp1.performDuties();
+	return 0;
+}*/
+/*
+Scenario 8: Educational Profile System
+You're building a program for managing student-employee profiles. The base class Person stores a name and age, with a method showPerson() that displays them.
+Then, you define two classes:
+"	Student inherits from Person, adds a roll number, and has showStudent() to display it.
+"	Employee also inherits from Person, adds an employee ID, and has showEmployee() to display it.
+You now create a hybrid class WorkingStudent that inherits from both Student and Employee. It includes a method showAll() that:
+"	Calls showPerson() from Student (to resolve ambiguity)
+"	Calls both showStudent() and showEmployee()
+In main(), create a WorkingStudent object. Set your name, age, roll number, and student ID. Call showAll() to display all information.*/
+/*#include<iostream>
+using namespace std;
+class Person{
+	public :
+		string name;
+		int id;
+		void showDetails(){
+			cout<<"Name : "<<name<<endl<<"ID : "<<id<<endl;
+		}
+};
+class Student : public Person{
+	public :
+		int rollNO;
+		void showStudent(){
+			cout<<"Roll No : "<<rollNO<<endl;
+		}
+};
+class Employee : public Person{
+	public :
+		int empId;
+		void login(){
+			cout<<name <<"("<<empId<<") has logged in"<<endl;	
+		}	
+};
+class WorkingStudent : public Student , public Employee{
+	public :
+		void showAll(){
+			Student::showDetails();
+			showStudent();
+			login();
+		}
+};
+int main(){
+	WorkingStudent ws1;
+	ws1.Student::name = "Areeba";
+	ws1.Student::id = 101;
+	ws1.Student::rollNO = 9232;
+	ws1.empId= 898;
+	ws1.showAll();
+	return 0;
+}*/
+
+
