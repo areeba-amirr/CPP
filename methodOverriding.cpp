@@ -1,6 +1,7 @@
 //Key Point -> Inheritance is compulsary
 //Same return tyype , same parameters just functionality different
 //Run-Time Polymorphism
+
 #include<iostream>
 using namespace std;
 class Person{
