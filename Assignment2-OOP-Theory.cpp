@@ -149,12 +149,12 @@ int main(){
 	f1.bookedSeats();
 	f1.display();
 	return 0;
-}
-*/
+}*/
+
 
 /*Q5. Smart Device Control An IoT company wants a program that can control different devices. Create a base class Device with a function turnOn() and turnOff(). 
 Derive classes Fan, Light, and AC that override these functions with their own messages.Use runtime polymorphism to call functions for each device.*/
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class Device{
 	public :
@@ -203,7 +203,73 @@ int main(){
 	a1.turnOff();
 	a1.turnOn();
 	return 0;
-}
+}*/
 
+/*Question5, 
+Design an Online Wallet System that demonstrates encapsulation by securely managing users' financial data.
+Add a TransactionLimit rule:
+"	No single withdrawal can exceed 40% of the current balance.
+"	If attempted, show a warning message instead of allowing withdrawal.
+________________________________________
+Main Function Tasks:
+"	Create one WalletAccount object.
+"	Set account details.
+"	Perform a series of deposits and withdrawals with both correct and incorrect PINs.
+"	Display the final summary and balance.*/
+#include<iostream>
+using namespace std;
+class WalletAccountSystem{
+	private :
+		int accNo;
+		float balance;
+		string password;
+	public :
+		WalletAccountSystem(int acc , float bal , string pass){
+		accNo = acc;
+		balance = bal;
+		password = pass;	
+		}
+		void transaction(int i , string pass, float withdraw ){
+			if(i == accNo && pass == password){
+				if(withdraw >= (balance/40)) cout<<"Warning Limit Exceeded!!!!"<<endl;
+				else {
+					cout<<"withdraw Succeed!!"<<endl;
+					balance -= withdraw;
+				}
+			}
+			else cout<<"Invalid Login Credentials!!"<<endl;
+		}
+		void summary(){
+			cout<<"Account Number : " <<accNo<<endl;
+			cout<<"Balance : "<<balance<<endl;
+		}
+};
+int main(){
+	WalletAccountSystem wa1(2347,8085.89,"s25csc");
+	int choice;
+	do{
+		cout<<"----Wallet Account System------"<<endl;
+		cout<<"1. Transaction"<<endl<<"2. Details "<<endl<<"3. Exit "<<endl;
+		cin>>choice;
+		if(choice == 1){
+			int id = 0; string pass; float draw;
+			cout<<"Enter Your Account Number :";
+			cin>>id;
+			cout<<"Enter Your Password :";
+			cin>>pass;
+			cout<<"Enter Amount to Withdraw :";
+			cin>>draw;
+			wa1.transaction(id,pass,draw);
+		}
+		else if (choice == 2){
+			wa1.summary();
+		}
+		else if(choice == 3){
+			cout<<"Exiting...."<<endl;
+		}
+		else cout<<"Invalid Choice!!!"<<endl;
+	} while(choice != 3);
+	return 0;
+}
 
 
