@@ -216,7 +216,7 @@ Main Function Tasks:
 "	Set account details.
 "	Perform a series of deposits and withdrawals with both correct and incorrect PINs.
 "	Display the final summary and balance.*/
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class WalletAccountSystem{
 	private :
@@ -270,6 +270,44 @@ int main(){
 		else cout<<"Invalid Choice!!!"<<endl;
 	} while(choice != 3);
 	return 0;
+}*/
+/*Question2,
+Suppose we have a class, call it Server, which has some desired functionality. Suppose further that we want to be able to replace it with another class, 
+OtherServer, which performs the same task but in a different way. It must be possible to switch between Server and OtherServer without having to recompile the 
+classes that call them. Write a program which solves this problem with the help of polymorphism.*/
+#include<iostream>
+using namespace std;
+class Server{
+	public :
+		void work(){
+			cout<<"Server is working..."<<endl;
+		}
+		void off(){
+			cout<<"Server is off..."<<endl;
+		}
+};
+class OtherServer :public Server{
+	public :
+		void work(){
+			cout<<"Other Server is working..."<<endl;
+		}
+		void off(){
+			cout<<" Other Server is off..."<<endl;
+		}
+};
+int main(){
+	OtherServer os1;
+	cout<<"Server Class Functions"<<endl;
+    os1.Server :: off();
+    os1.Server :: work();
+    cout<<"Other Server Class Functions"<<endl;
+    os1.OtherServer :: off();
+    os1.OtherServer :: work();
+	return 0;
 }
+
+
+
+
 
 
