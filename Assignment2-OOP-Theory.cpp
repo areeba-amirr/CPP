@@ -275,7 +275,7 @@ int main(){
 Suppose we have a class, call it Server, which has some desired functionality. Suppose further that we want to be able to replace it with another class, 
 OtherServer, which performs the same task but in a different way. It must be possible to switch between Server and OtherServer without having to recompile the 
 classes that call them. Write a program which solves this problem with the help of polymorphism.*/
-#include<iostream>
+/*#include<iostream>
 using namespace std;
 class Server{
 	public :
@@ -304,10 +304,131 @@ int main(){
     os1.OtherServer :: off();
     os1.OtherServer :: work();
 	return 0;
+}*/
+
+/*Question4,
+Create a base class Transport that stores common data such as mode, capacity, and farePerKm.
+It should have a method calculateFare(float distance) that computes the total fare based on distance and fare rate.
+Now, derive three classes from Transport:
+1.	Bus - has an additional attribute routeNumber and a function displaySchedule().
+2.	Train - has attributes coachType (like sleeper, economy) and trainNumber.
+3.	Plane - has attributes flightCode and hasMealService (boolean).
+Each derived class must:
+"	Override the calculateFare() method to apply different fare multipliers (e.g., Plane = 3× base fare, Train = 1.5×, Bus = normal fare).
+"	Have its own displayDetails() method that shows all data (base + derived).
+"	Use protected access for base attributes so derived classes can use them safely.
+Finally, in main():
+"	show different transport types.
+"	Accept distance as input and display the total fare and details for each transport type.*/
+#include<iostream>
+using namespace std;
+class Transport{
+	public :
+		int fare  = 100;
+//		string mode;
+		int distance;
+	virtual void calculateFare(){
+		cout<<"Total Fare : "<<fare*distance<<endl;
+	}	
+};
+class Bus : public Transport{
+	public :
+		int routeNo;
+		void displayrout() {
+			cout<<"Route No : "<<routeNo<<endl; 
+		}
+		 void calculateFare() override{
+		cout<<"Total Fare : "<<fare*distance<<endl;
+	}	
+};
+
+class Plane : public Transport{
+	public :
+		int flightcode;
+		bool meal;
+		void displayflight(){
+			if(meal){
+				cout<<"Meal Taken"<<endl;
+				cout<<"Flight Code"<<flightcode<<endl;
+			}
+			else{
+				cout<<"Meal Not Taken"<<endl;
+				cout<<"Flight Code"<<flightcode<<endl;	
+			}
+		}
+		void calculateFare() override{
+		cout<<"Total Fare : "<<(3*fare)*distance<<endl;
+	}
+};
+class Train : public Transport{
+	public :
+		int trainNum;
+	     string coachType;
+		void displayTrain(){
+			cout<<"Train Number : "<<trainNum<<endl;
+			cout<<"Coach Type : "<<coachType<<endl;
+		}
+		void calculateFare() override{
+		cout<<"Total Fare : "<<(2*fare)*distance<<endl;
+	}
+};
+int main(){
+	Transport* t;
+	Bus b1;
+		Plane p1;
+	Train t1;
+	int choice ;
+	do{
+		cout<<"1. Bus "<<endl<<"2. Train "<<endl<<"3. Plane"<<endl<<"4. Exit"<<endl;;
+		cin>>choice;
+		switch(choice){
+			case 1 : {
+			cout<<"************BUSES***************"<<endl;
+			cout<<"Enter Distance :";
+			cin>>b1.distance;
+			cout<<"Enter Route No :";
+			cin>>b1.routeNo;
+				t = &b1;
+				b1.displayrout();
+			t->calculateFare(); 
+				break;
+			}
+
+			case 2 : {
+				cout<<"************TRAIN***************"<<endl;
+			cout<<"Enter Distance :";
+			cin>>t1.distance;
+			cout<<"Enter Coach Type :";
+			cin>>t1.coachType;
+			cout<<"Enter Train Number :";
+			cin>>t1.trainNum;
+				t = &t1;
+				t1.displayTrain();
+			t->calculateFare(); 
+				break;
+			}
+			case 3 : {
+				cout<<"************PLANE***************"<<endl;
+				cout<<"Enter Flight Code :";
+			cin>>p1.flightcode;
+			cout<<"Enter Distance :";
+			cin>>p1.distance;
+			cout<<"Enter 1 if you want meal else enter 0";
+			cin>>p1.meal;
+				t = &p1;
+				p1.displayflight();
+			t->calculateFare(); 
+				break;
+			}
+			case 0 :{
+				cout<<"exiting....."<<endl;
+				break;
+			}
+			default : cout<<"invalid choice"<<endl;
+		}
+		
+	}while(choice != 0);
+	return 0;
 }
-
-
-
-
 
 
