@@ -20,12 +20,12 @@ int main(){
 	File<<"Hello world";
 	File.close();
 	
-//	ofstream file1 ("data.txt");
-//	string name;
-//	cout<<"Enter Your Name";
-//	getline(cin,name);
-//	file1<<"Name : "<<name;
-//	file1.close();
+	ofstream file1 ("data.txt");
+	string name;
+	cout<<"Enter Your Name";
+	getline(cin,name);
+	file1<<"Name : "<<name;
+	file1.close();
 	
 //	ofstream file2 ("myData.txt");
 //	string name;
@@ -99,6 +99,16 @@ while(getline(fileLines,myLines)){
 cout<<"Total lines : "<<count<<endl;
 fileLines.close();
 
+//Append Data 
+ofstream app ("data.txt",ios :: app);
+app<<"New Line Added"<<endl;
+app<<"Another Line"<<endl;
+app<<"Another"<<endl;
+app.close();
 
+
+ofstream app1 ("numbers.txt",ios :: app);
+app1<<"New Line Added"<<endl;
+app1.close();
 	return 0;
 }
